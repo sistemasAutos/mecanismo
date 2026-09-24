@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexagonal Eyes Engine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            background-color: #0a0a0a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        #app-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #bg-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80%;
+            height: 80%;
+            z-index: 0;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+
+        .canvas-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 90%;
+            height: 90%;
+        }
+
+        #grid-canvas {
+            z-index: 1;
+            pointer-events: auto;
+        }
+
+        #line-canvas {
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        #sat-canvas {
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        #ui-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .debug-info {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 11px;
+            font-family: 'Courier New', monospace;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app-container">
+        <svg id="bg-svg" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="hex-pattern" x="0" y="0" width="40" height="34.64" patternUnits="userSpaceOnUse">
+                    <path d="M20 0L40 11.55L40 34.64L20 46.19L0 34.64L0 11.55Z" 
+                          fill="none" stroke="#ffffff" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hex-pattern)"/>
+        </svg>
+
+        <canvas id="grid-canvas" class="canvas-layer"></canvas>
+        <canvas id="line-canvas" class="canvas-layer"></canvas>
+        <canvas id="sat-canvas" class="canvas-layer"></canvas>
+        
+        <div id="ui-overlay">
+            <div class="debug-info" id="debug-info">FPS: 60 | Cells: 0</div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

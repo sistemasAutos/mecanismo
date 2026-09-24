@@ -1,0 +1,33 @@
+//--- hex-eyes-engine/tsconfig.json 
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    //"baseUrl": "./src",
+    "paths": {
+      "@core/*": ["./src/core/*"],
+      "@grid/*": ["./src/grid/*"],
+      "@tracking/*": ["./src/tracking/*"],
+      "@interaction/*": ["./src/interaction/*"],
+      "@render/*": ["./src/render/*"],
+      "@state/*": ["./src/state/*"],
+      "@data/*": ["./src/data/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
